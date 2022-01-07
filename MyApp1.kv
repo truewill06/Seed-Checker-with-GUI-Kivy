@@ -1,0 +1,188 @@
+
+<MyScreenManager>:
+    ScreenOne:
+    ScreenTwo:
+    ScreenThree:
+
+
+<ScreenOne>:
+    name: "login"
+    email: emailin
+    password: passwordin
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'working.png'
+    
+    BoxLayout:
+        orientation:'vertical'
+        padding: 30
+        
+            
+           
+        
+            
+                    
+        Label:
+            id: label2
+            text:'Sign In'
+            color:.92, .72, 0
+            font_size:36
+            
+        
+        
+        MDTextField:
+
+            id: emailin
+            
+            helper_text:'Email'
+            helper_text_mode: "persistent"
+            mode: "rectangle"
+            
+            
+        
+        MDTextField:
+            id: passwordin
+            
+            helper_text:'Password'
+            helper_text_mode: "persistent"
+            mode: "rectangle"
+                    
+                
+        BoxLayout:
+            orientation:'horizontal'
+            AnchorLayout:
+                
+                Button:
+                    id: signin
+                    on_press: root.getAuth()
+                    on_release: root.switch_screen()
+                    text: "Login"
+                    size_hint: (1, .3)
+                    background_color: .92, .72, 0
+            Label:
+                text:''
+                
+                    
+                    
+                    
+            AnchorLayout: 
+                 
+                Button:
+                    id: Register
+                    text:'Register'
+                    background_color: .92, .72, 0
+                    size_hint: (1, .3)
+                    on_release: root.sign_up()
+
+<ScreenTwo>:
+    name: "main"
+    kvoutput2: kvoutput
+    
+    BoxLayout:
+        id: box1
+        orientation:'vertical'
+        Label: 
+            id: label1
+            text:'Working'
+            font_size: 48
+            color: .92, .72, 0
+        Label:
+            id: kvoutput
+            text: 
+            font_size: 8
+        Label:
+            id: label2
+            text:''
+            size: (.5, .5)
+    BoxLayout:
+        id: box2
+        orientation:'horizontal'
+        padding:60
+        Button:
+            id: start
+            on_press: 
+            on_release:root.start()
+            background_color: .92, .72, 0
+            size_hint: (1, .3)
+            text: "Start"  
+
+        Label:
+            text:'' 
+        Button:
+            id: stop
+            on_release: root.stop()
+            background_color: .92, .72, 0
+            size_hint: (1, .3)
+            text: "Stop"
+            
+                
+<ScreenThree>:
+    name: 'signup'
+    email: emailin
+    bitcoin: bitcoinin
+    password: passin
+    password2: passin2
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'working.png'
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 30
+
+        
+            
+        Label:
+            text:'Signup'
+            
+    
+    
+    
+        MDTextField:
+            id: emailin
+            helper_text:'Email'
+            helper_text_mode: "persistent"
+            mode: "rectangle"
+            
+        
+        MDTextField:
+            id: bitcoinin
+            helper_text:'Bitcoin Address'
+            helper_text_mode: "persistent"
+            mode: "rectangle"
+            
+        
+        MDTextField:
+            id: passin
+            helper_text:'Password'
+            helper_text_mode: "persistent"
+            mode: "rectangle"
+        
+        MDTextField:
+            id: passin2
+            helper_text:'Confirm Password'
+            helper_text_mode: "persistent"
+            mode: "rectangle"
+            
+        BoxLayout:
+            orientation:'horizontal'  
+            
+            Button:
+                id: submit
+                text:'Submit'
+                on_release: root.submit()
+                size_hint: (1, .3)
+                background_color: .92, .72, 0
+            Label:
+                text:''
+            Button:
+                id: cancel
+                text:'Cancel'
+                size_hint: (1, .3)
+                background_color: .92, .72, 0
+                on_release: root.cancel()
+        
